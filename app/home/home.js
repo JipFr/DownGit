@@ -15,7 +15,7 @@ homeModule.config([
     
 	function ($routeProvider) {
 		$routeProvider
-			.when('/', {
+			.when('/home', {
                 templateUrl: 'app/home/home.html',
                 controller: [
 				'$scope',
@@ -32,7 +32,7 @@ homeModule.config([
 					$scope.totalFiles={val: 0};
 					
 					var templateUrl = "github.com";
-					var downloadUrlPrefix = "https://jipfr.github.io/DownGit/#/?url=";
+					var downloadUrlPrefix = "https://jipfr.github.io/DownGit/#/home?url=";
 					
 					if($routeParams.url){
 						$scope.url=$routeParams.url;
@@ -135,6 +135,8 @@ homeModule.factory('homeService', [
 				progress.isProcessing.val=false;
 				zip.generateAsync({type:"blob"}).then(function(content) {
 					saveAs(content, downloadFileName+".zip");
+					window.close();
+					document.querySelector(".done").innerHTML = "Download completed. You can close the window now!"
 				});
 			});
 		}
@@ -170,4 +172,3 @@ homeModule.factory('homeService', [
     	};
     }
 ]);
-
