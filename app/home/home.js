@@ -135,7 +135,9 @@ homeModule.factory('homeService', [
 				progress.isProcessing.val=false;
 				zip.generateAsync({type:"blob"}).then(function(content) {
 					saveAs(content, downloadFileName+".zip");
-					window.close();
+					setTimeout(() =>  {
+						window.close();
+					}, 10e3);
 					document.querySelector(".done").innerHTML = "Download completed. You can close the window now!"
 				});
 			});
