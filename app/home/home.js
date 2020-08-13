@@ -15,7 +15,7 @@ homeModule.config([
     
 	function ($routeProvider) {
 		$routeProvider
-			.when('/home', {
+			.when('/', {
                 templateUrl: 'app/home/home.html',
                 controller: [
 				'$scope',
@@ -32,7 +32,7 @@ homeModule.config([
 					$scope.totalFiles={val: 0};
 					
 					var templateUrl = "github.com";
-					var downloadUrlPrefix = "https://jipfr.github.io/DownGit/#/home?url=";
+					var downloadUrlPrefix = "https://jipfr.github.io/DownGit/#/?url=";
 					
 					if($routeParams.url){
 						$scope.url=$routeParams.url;
