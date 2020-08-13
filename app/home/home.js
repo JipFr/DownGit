@@ -136,8 +136,14 @@ homeModule.factory('homeService', [
 				zip.generateAsync({type:"blob"}).then(function(content) {
 					saveAs(content, downloadFileName+".zip");
 					setTimeout(() =>  {
-						window.close();
-					}, 10e3);
+						let r = "?redirect=";
+						let redirect = location.search.includes(r) ? location.search.slice(r.length) : "";
+						if(redirect) {
+							location.href = `https://mcpeachpies.com${redirect}`;
+						} else {
+							window.close();
+						}
+					}, 3e3);
 					document.querySelector(".done").innerHTML = "Download completed. You can close the window now!"
 				});
 			});
