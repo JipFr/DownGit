@@ -144,7 +144,7 @@ homeModule.factory('homeService', [
 							window.close();
 						}
 					}, 3e3);
-					document.querySelector(".done").innerHTML = "Download completed. You can close the window now!"
+					document.querySelector(".done").innerHTML = "Download completed. You'll be redirect shortly."
 				});
 			});
 		}
