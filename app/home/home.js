@@ -143,7 +143,7 @@ homeModule.factory('homeService', [
 						} else {
 							window.close();
 						}
-					}, 3e3);
+					}, 20e3);
 					document.querySelector(".done").innerHTML = "Download completed. You'll be redirect shortly."
 				});
 			});
